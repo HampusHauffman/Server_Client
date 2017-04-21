@@ -12,25 +12,29 @@ int main(int argc, char** argv)
 	SDLNet_Init();
 
 	IPaddress ip;
+	UDPsocket server;
+	UDPsocket client;
+	UDPpacket *packet;
 	//write "127.0.0.1",1234 to connect to the server.cpp on your local machine
+
+	server = SDLNet_UDP_Open(1234);
+
 	SDLNet_ResolveHost(&ip, "127.0.0.1", 1234);
 
-	//const char* http = "GET / HTTP/1.1\nHost: www.linux.org\n\n";
+	packet = SDLNet_AllocPacket(1024);
 
-	TCPsocket client = SDLNet_TCP_Open(&ip);
-
-	//SDLNet_TCP_Send(client, http, strlen(http) + 1);
-
-	char text[10000];
 	while (1)
 	{
-		while (SDLNet_TCP_Recv(client, text, 10000))
+		if (SDLNet_UDP_Recv(server, packet->data))
 		{
-			printf(text);
+			printf(packet->data);
+		}
+		else {
+			printf("no input\n");
 		}
 	}
 
-	SDLNet_TCP_Close(client);
+	SDLNet_UDP_Close(server);
 
 	SDLNet_Quit();
 	SDL_Quit();

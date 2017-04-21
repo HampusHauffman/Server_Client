@@ -1,3 +1,4 @@
 ﻿  client.c
-  Client.vcxproj -> D:\Programing\HI1026\Client\Debug\Client.exe
-  Client.vcxproj -> D:\Programing\HI1026\Client\Debug\Client.pdb (Partial PDB)
+d:\programing\hi1026\server_client\client\client\client.c(27): warning C4133: 'function': incompatible types - from 'Uint8 *' to 'UDPpacket *'
+  Client.vcxproj -> D:\Programing\HI1026\Server_Client\Client\Debug\Client.exe
+  Client.vcxproj -> D:\Programing\HI1026\Server_Client\Client\Debug\Client.pdb (Partial PDB)
