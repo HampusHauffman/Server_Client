@@ -24,18 +24,24 @@ int main(int argc, char** argv)
 
 	server = SDLNet_UDP_Open(1234);
 
-	SDLNet_ResolveHost(&ip, "127.0.0.1", 1234);
-
+	//SDLNet_ResolveHost(&ip, "127.0.0.1", 1234);
 	packet = SDLNet_AllocPacket(1024);
-	packet->data = 7;
-	packet->len = 1024;
-	packet->channel = "127.0.0.1";
+
+
+	//SDLNet_UDP_Recv(server, packet);
 	while (1)
 	{
-		int numset = SDLNet_UDP_Send(server, -1, packet);
-		if (!numset)
+		/* Wait a packet. UDP_Recv returns != 0 if a packet is coming */
+		if (SDLNet_UDP_Recv(server, packet))
 		{
-			printf("no resipiants\n");
+			printf("UDP Packet incoming\n");
+			printf("\tChan:    %d\n", packet->channel);
+			printf("\tData:    %s\n", (char *)packet->data);
+			printf("\tLen:     %d\n", packet->len);
+			printf("\tMaxlen:  %d\n", packet->maxlen);
+			printf("\tStatus:  %d\n", packet->status);
+			printf("\tAddress: %x %x\n", packet->address.host, packet->address.port);
+
 		}
 	}
 
