@@ -32,7 +32,7 @@ int main(int argc, char** argv)
 	while (1)
 	{
 		/* Wait a packet. UDP_Recv returns != 0 if a packet is coming */
-		if (SDLNet_UDP_Recv(server, packet))
+		while (SDLNet_UDP_Recv(server, packet))
 		{
 			printf("UDP Packet incoming\n");
 			printf("\tChan:    %d\n", packet->channel);

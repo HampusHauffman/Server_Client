@@ -1,0 +1,9 @@
+﻿  main.c
+c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\winsock.h(301): warning C4005: 'INADDR_ANY': macro redefinition
+  d:\programming\sdl\server_client\text\text\sdl2_net-2.0.1\include\sdl_net.h(102): note: see previous definition of 'INADDR_ANY'
+c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\winsock.h(303): warning C4005: 'INADDR_BROADCAST': macro redefinition
+  d:\programming\sdl\server_client\text\text\sdl2_net-2.0.1\include\sdl_net.h(111): note: see previous definition of 'INADDR_BROADCAST'
+c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\winsock.h(304): warning C4005: 'INADDR_NONE': macro redefinition
+  d:\programming\sdl\server_client\text\text\sdl2_net-2.0.1\include\sdl_net.h(105): note: see previous definition of 'INADDR_NONE'
+  Text.vcxproj -> D:\Programming\SDL\Server_Client\Text\Debug\Text.exe
+  Text.vcxproj -> D:\Programming\SDL\Server_Client\Text\Debug\Text.pdb (Partial PDB)

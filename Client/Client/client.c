@@ -29,6 +29,7 @@ int main(int argc, char** argv)
 
 	while (1)
 	{
+		
 		packet->address.host = ip.host;	/* Set the destination host */
 		packet->address.port = ip.port;	/* And destination port */
 
