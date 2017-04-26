@@ -16,6 +16,7 @@ int main(int argc, char** argv)
 
 	//The surface contained by the window
 	SDL_Surface* screenSurface = NULL;
+	SDL_Surface* message	   = NULL;
 
 
 	if (TTF_Init() == -1) {
@@ -57,14 +58,23 @@ int main(int argc, char** argv)
 	if (!font) {
 		printf("TTF_OpenFont: %s\n", TTF_GetError());
 		// handle error
-		printf("hej");
 	}
 
-	SDL_Color col = { 255,100,255,1 };
-	
-	screenSurface = TTF_RenderText_Solid(font,"hej",col);
+	SDL_Color color = { 0,0,0 };
+	SDL_Surface *text_surface;
+	if (!(text_surface = TTF_RenderText_Solid(font, "Hello World!", color))) {
+		//handle error here, perhaps print TTF_GetError at least
+		printf("Render text%s\n", TTF_GetError());
+	}
+	else {
+		SDL_BlitSurface(text_surface, NULL, screenSurface, NULL);
+		//perhaps we can reuse it, but I assume not for simplicity.
+		SDL_FreeSurface(text_surface);
+	}
 
 	SDL_UpdateWindowSurface(window);
+
+	SDL_Delay(2000);
 
 	//Destroy window
 	SDL_DestroyWindow(window);
