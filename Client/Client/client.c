@@ -12,33 +12,23 @@ int main(int argc, char** argv)
 	SDLNet_Init();
 
 	IPaddress ip;
-	UDPsocket server;
-	UDPpacket *packet;
-	//write "127.0.0.1",1234 to connect to the server.cpp on your local machine
-
-	server = SDLNet_UDP_Open(0); //kan va 1123 men bör inte va de
-
+	//write the ip of the host
 	SDLNet_ResolveHost(&ip, "127.0.0.1", 1234);
 
-	packet = SDLNet_AllocPacket(1024);
 
-	//packet->address = ip;
+	TCPsocket client = SDLNet_TCP_Open(&ip);
 
-	packet->data = "hej";
-	printf("%c", packet->data);
 
+	char text[10000];
 	while (1)
 	{
-		
-		packet->address.host = ip.host;	/* Set the destination host */
-		packet->address.port = ip.port;	/* And destination port */
-
-		packet->len = strlen((char *)packet->data) + 1;
-
-		SDLNet_UDP_Send(server, -1, packet); /* This sets the p->channel */
+		while (SDLNet_TCP_Recv(client, text, 10000))
+		{
+			printf(text);
+		}
 	}
 
-	SDLNet_UDP_Close(server);
+	SDLNet_TCP_Close(client);
 
 	SDLNet_Quit();
 	SDL_Quit();

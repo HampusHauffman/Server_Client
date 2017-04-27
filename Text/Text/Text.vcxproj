@@ -72,7 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(MSBuildProjectDirectory)\SDL2_net-2.0.1\include;$(MSBuildProjectDirectory)\SDL2_image-2.0.1\include;$(MSBuildProjectDirectory)\SDL2-2.0.5\include;$(MSBuildProjectDirectory)\SDL2_ttf-2.0.14\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(MSBuildProjectDirectory);$(WindowsSDK_IncludePath);$(MSBuildProjectDirectory)\SDL2_net-2.0.1\include;$(MSBuildProjectDirectory)\SDL2_image-2.0.1\include;$(MSBuildProjectDirectory)\SDL2-2.0.5\include;$(MSBuildProjectDirectory)\SDL2_ttf-2.0.14\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86;$(MSBuildProjectDirectory)\SDL2-2.0.5\lib\x86;$(MSBuildProjectDirectory)\SDL2_net-2.0.1\lib\x86;$(MSBuildProjectDirectory)\SDL2_image-2.0.1\lib\x86;$(MSBuildProjectDirectory)\SDL2_ttf-2.0.14\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -142,7 +142,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="client.c" />
     <ClCompile Include="main.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="client.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

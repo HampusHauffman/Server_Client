@@ -5,5 +5,6 @@ c:\program files (x86)\windows kits\10\include\10.0.14393.0\um\winsock.h(303): w
   d:\programing\hi1026\server_client\text\text\sdl2_net-2.0.1\include\sdl_net.h(111): note: see previous definition of 'INADDR_BROADCAST'
 c:\program files (x86)\windows kits\10\include\10.0.14393.0\um\winsock.h(304): warning C4005: 'INADDR_NONE': macro redefinition
   d:\programing\hi1026\server_client\text\text\sdl2_net-2.0.1\include\sdl_net.h(105): note: see previous definition of 'INADDR_NONE'
+  LINK : D:\Programing\HI1026\Server_Client\Text\Debug\Text.exe not found or not built by the last incremental link; performing full link
   Text.vcxproj -> D:\Programing\HI1026\Server_Client\Text\Debug\Text.exe
   Text.vcxproj -> D:\Programing\HI1026\Server_Client\Text\Debug\Text.pdb (Partial PDB)

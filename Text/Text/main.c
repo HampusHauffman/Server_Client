@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <Windows.h>
+#include <client.h>
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 640;
@@ -21,6 +22,11 @@ int main(int argc, char** argv)
 
 	if (TTF_Init() == -1) {
 		printf("TTF_Init: %s\n", TTF_GetError());
+		exit(2);
+	}
+
+	if (SDLNet_Init() == -1) {
+		printf("SDLNet_Init: %s\n", SDLNet_GetError());
 		exit(2);
 	}
 
@@ -52,6 +58,10 @@ int main(int argc, char** argv)
 		}
 	}
 
+
+
+
+
 	// load font.ttf at size 16 into font
 	TTF_Font *font;
 	font = TTF_OpenFont("font.ttf", 16);
@@ -62,18 +72,27 @@ int main(int argc, char** argv)
 
 	SDL_Color color = { 0,0,0 };
 	SDL_Surface *text_surface;
-	if (!(text_surface = TTF_RenderText_Solid(font, "Hello World!", color))) {
-		//handle error here, perhaps print TTF_GetError at least
-		printf("Render text%s\n", TTF_GetError());
-	}
-	else {
-		SDL_BlitSurface(text_surface, NULL, screenSurface, NULL);
-		//perhaps we can reuse it, but I assume not for simplicity.
-		SDL_FreeSurface(text_surface);
-	}
+	while (1)
+	{
 
-	SDL_UpdateWindowSurface(window);
+		//gets the text from the "client"
+		const char* text = client();
+		//printf("%s", text);
 
+		SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 0xC3, 0xC3, 0xFF));
+
+		if (!(text_surface = TTF_RenderText_Solid(font, text, color))) {
+			//handle error here, perhaps print TTF_GetError at least
+			printf("Render text%s\n", TTF_GetError());
+		}
+		else {
+			SDL_BlitSurface(text_surface, NULL, screenSurface, NULL);
+			//perhaps we can reuse it, but I assume not for simplicity.
+			SDL_FreeSurface(text_surface);
+		}
+
+		SDL_UpdateWindowSurface(window);
+	}
 	SDL_Delay(2000);
 
 	//Destroy window
@@ -84,9 +103,12 @@ int main(int argc, char** argv)
 	TTF_CloseFont(font);
 	font = NULL;
 
+	
+
 	//Quit SDL subsystems
 	TTF_Quit();
 	SDL_Quit();
+	SDLNet_Quit();
 	Sleep(2000);
 	return 0;
 }
