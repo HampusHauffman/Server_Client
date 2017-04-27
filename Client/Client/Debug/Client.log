@@ -1,4 +1,4 @@
 ﻿  client.c
-d:\programing\hi1026\server_client\client\client\client.c(28): warning C4477: 'printf' : format string '%c' requires an argument of type 'int', but variadic argument 1 has type 'Uint8 *'
+d:\programing\hi1026\server_client\client\client\client.c(32): warning C4716: 'SDL_main': must return a value
   Client.vcxproj -> D:\Programing\HI1026\Server_Client\Client\Debug\Client.exe
   Client.vcxproj -> D:\Programing\HI1026\Server_Client\Client\Debug\Client.pdb (Partial PDB)

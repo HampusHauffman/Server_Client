@@ -18,34 +18,24 @@ int main(int argc, char** argv)
 	SDLNet_Init();
 
 	IPaddress ip;
-	UDPsocket server;
-	UDPsocket client;
-	UDPpacket *packet;
+	SDLNet_ResolveHost(&ip, NULL, 1234);
 
-	server = SDLNet_UDP_Open(1234);
+	TCPsocket server = SDLNet_TCP_Open(&ip);
+	TCPsocket client;
 
-	//SDLNet_ResolveHost(&ip, "127.0.0.1", 1234);
-	packet = SDLNet_AllocPacket(1024);
-
-
-	//SDLNet_UDP_Recv(server, packet);
+	const char* text = "HELLO CLIENT!\n";
 	while (1)
 	{
-		/* Wait a packet. UDP_Recv returns != 0 if a packet is coming */
-		while (SDLNet_UDP_Recv(server, packet))
+		client = SDLNet_TCP_Accept(server);
+		if (client)
 		{
-			printf("UDP Packet incoming\n");
-			printf("\tChan:    %d\n", packet->channel);
-			printf("\tData:    %s\n", (char *)packet->data);
-			printf("\tLen:     %d\n", packet->len);
-			printf("\tMaxlen:  %d\n", packet->maxlen);
-			printf("\tStatus:  %d\n", packet->status);
-			printf("\tAddress: %x %x\n", packet->address.host, packet->address.port);
-
+			//here you can communitcate with the client
+			SDLNet_TCP_Send(client, text, strlen(text) + 1);
+			SDLNet_TCP_Close(client);
+			break;
 		}
 	}
-
-	SDLNet_UDP_Close(server);
+	SDLNet_TCP_Close(server);
 
 	SDLNet_Quit();
 	SDL_Quit();
