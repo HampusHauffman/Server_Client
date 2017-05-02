@@ -21,8 +21,8 @@ const char * client()
 
 	char text[10000];
 	
-	SDLNet_TCP_Recv(client, text, 10000);
-	printf(text);
+	//SDLNet_TCP_Recv(client, text, 10000);
+	//printf(text);
 
 	SDLNet_TCP_Close(client);
 

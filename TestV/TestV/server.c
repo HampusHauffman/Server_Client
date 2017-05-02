@@ -24,7 +24,7 @@ int main(int argc, char** argv)
 	TCPsocket server = SDLNet_TCP_Open(&ip);
 	TCPsocket client;
 
-	char text[10000] = "Hampus!\n";
+	char text[100] = "Hampus!\n";
 	
 	
 	while (1)
