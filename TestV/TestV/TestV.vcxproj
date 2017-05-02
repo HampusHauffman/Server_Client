@@ -142,7 +142,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="server.c" />
+    <ClCompile Include="main.c" />
+    <ClCompile Include="TCP.c" />
+    <ClCompile Include="UDP.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TCP.h" />
+    <ClInclude Include="UDP.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
