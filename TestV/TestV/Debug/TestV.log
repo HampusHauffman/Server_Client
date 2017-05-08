@@ -1,8 +1,4 @@
-﻿  main.c
-d:\programing\hi1026\server_client\testv\testv\main.c(9): warning C4026: function declared with formal parameter list
-  UDP.c
-d:\programing\hi1026\server_client\testv\testv\udp.c(19): warning C4101: 'ip': unreferenced local variable
-d:\programing\hi1026\server_client\testv\testv\udp.c(21): warning C4101: 'client': unreferenced local variable
-  Generating Code...
+﻿  UDP.c
+d:\programing\hi1026\server_client\testv\testv\udp.c(22): warning C4101: 'ip': unreferenced local variable
   TestV.vcxproj -> D:\Programing\HI1026\Server_Client\TestV\Debug\TestV.exe
   TestV.vcxproj -> D:\Programing\HI1026\Server_Client\TestV\Debug\TestV.pdb (Partial PDB)
