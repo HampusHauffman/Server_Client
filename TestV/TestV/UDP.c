@@ -53,7 +53,10 @@ int UDP()
 			printf("\tMaxlen:  %d\n", packet->maxlen);
 			printf("\tStatus:  %d\n", packet->status);
 			printf("\tAddress: %x %x\n", packet->address.host, packet->address.port);
-			
+
+			double n;
+			sscanf(packet->data, "%f", &n);
+			printf("%f", n);
 			
 				if((adrs[i].port == 0x00) && (packet->address.port != adrs[0].port) && (packet->address.port != adrs[1].port) && (packet->address.port != adrs[2].port) && (packet->address.port != adrs[3].port))
 				{
