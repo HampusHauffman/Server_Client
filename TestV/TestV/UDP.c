@@ -19,6 +19,10 @@ int UDP()
 	IPaddress adrs[4];
 	int i = 0;
 	int k = 0;
+	int objOne[3];
+	int objTwo[3];
+	int objThree[3];
+	int objFour[3];
 	adrs[0].port = 0;
 	adrs[1].port = 0;
 	adrs[2].port = 0;
@@ -54,9 +58,10 @@ int UDP()
 			printf("\tStatus:  %d\n", packet->status);
 			printf("\tAddress: %x %x\n", packet->address.host, packet->address.port);
 
-			double n;
-			sscanf(packet->data, "%f", &n);
-			printf("%f", n);
+			
+			
+			sscanf((char *)packet->data, "%d %d %d", &objOne[0], &objOne[1], &objOne[2]);
+			printf("\n%d \n%d \n%d\n", objOne[0], objOne[1], objOne[2]);
 			
 				if((adrs[i].port == 0x00) && (packet->address.port != adrs[0].port) && (packet->address.port != adrs[1].port) && (packet->address.port != adrs[2].port) && (packet->address.port != adrs[3].port))
 				{
@@ -65,6 +70,13 @@ int UDP()
 					i++;
 				}
 			
+			/*
+			
+			Här kan man ändra på data som ska skickas tillbaka
+			
+			*/
+
+
 
 			//detta skickar med ipadressen som kom
 			packets->address.host = packet->address.host;	
