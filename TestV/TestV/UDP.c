@@ -40,9 +40,7 @@ int UDP()
 	packet = SDLNet_AllocPacket(1024);
 	packets = SDLNet_AllocPacket(1024);
 
-	
-	//printf("%x", adrs[0]);
-
+	char hold[1000];
 
 	while (1)
 	{
@@ -60,7 +58,7 @@ int UDP()
 
 			
 			
-			sscanf((char *)packet->data, "%d %d %d", &objOne[0], &objOne[1], &objOne[2]);
+			sscanf(packet->data, "%d %d %d", &objOne[0], &objOne[1], &objOne[2]);
 			printf("\n%d \n%d \n%d\n", objOne[0], objOne[1], objOne[2]);
 			
 				if((adrs[i].port == 0x00) && (packet->address.port != adrs[0].port) && (packet->address.port != adrs[1].port) && (packet->address.port != adrs[2].port) && (packet->address.port != adrs[3].port))
@@ -75,8 +73,11 @@ int UDP()
 			Här kan man ändra på data som ska skickas tillbaka
 			
 			*/
+			//tex 
+				objOne[0] = objOne[0] + 1;
 
-
+			sprintf(hold, "%d %d %d", (double)objOne[0], (double)objOne[1], (double)objOne[2]);
+			packets->data = hold;
 
 			//detta skickar med ipadressen som kom
 			packets->address.host = packet->address.host;	

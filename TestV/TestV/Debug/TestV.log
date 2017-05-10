@@ -1,6 +1,14 @@
 ﻿  UDP.c
-d:\programming\sdl\server_client\testv\testv\udp.c(60): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+d:\programming\sdl\server_client\testv\testv\udp.c(61): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(2260): note: see declaration of 'sscanf'
-d:\programming\sdl\server_client\testv\testv\udp.c(28): warning C4101: 'ip': unreferenced local variable
+d:\programming\sdl\server_client\testv\testv\udp.c(79): warning C4477: 'sprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'double'
+d:\programming\sdl\server_client\testv\testv\udp.c(79): warning C4477: 'sprintf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'double'
+d:\programming\sdl\server_client\testv\testv\udp.c(79): warning C4477: 'sprintf' : format string '%d' requires an argument of type 'int', but variadic argument 3 has type 'double'
+d:\programming\sdl\server_client\testv\testv\udp.c(79): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+d:\programming\sdl\server_client\testv\testv\udp.c(24): warning C4101: 'objThree': unreferenced local variable
+d:\programming\sdl\server_client\testv\testv\udp.c(31): warning C4101: 'ip': unreferenced local variable
+d:\programming\sdl\server_client\testv\testv\udp.c(25): warning C4101: 'objFour': unreferenced local variable
+d:\programming\sdl\server_client\testv\testv\udp.c(23): warning C4101: 'objTwo': unreferenced local variable
   TestV.vcxproj -> D:\Programming\SDL\Server_Client\TestV\Debug\TestV.exe
   TestV.vcxproj -> D:\Programming\SDL\Server_Client\TestV\Debug\TestV.pdb (Partial PDB)
